@@ -25,7 +25,11 @@ namespace GuessNumberCasino
 
         private void button4_Click(object sender, EventArgs e)
         {
+
             int bet = int.Parse(betTextbox.Text);
+            if (bet > GameManager.pocket.GetMoneyAmount())
+                return;
+
             int magicNumber;
             if (int.TryParse(magicNumberTextbox.Text, out magicNumber) && (magicNumber > 0 && magicNumber < 10))
             {
